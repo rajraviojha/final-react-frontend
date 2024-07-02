@@ -11,6 +11,10 @@ pool:
 
 steps:
 
+- task: NodeTaskRunnerInstaller@0
+  inputs:
+    nodeVersion: '6'
+
 - task: Npm@1
   inputs:
     command: 'install'
