@@ -19,10 +19,26 @@ steps:
   inputs:
     command: 'install'
 
+- task: Docker@2
+  inputs:
+    containerRegistry: 'reactapp'
+    command: 'login'
 
 - task: Docker@2
   inputs:
     containerRegistry: 'reactapp'
     repository: 'reactapp'
-    command: 'buildAndPush'
+    command: 'build'
     Dockerfile: '**/Dockerfile'
+
+- task: Docker@2
+  inputs:
+    containerRegistry: 'reactapp'
+    repository: 'reactapp'
+    command: 'push'
+
+- task: Docker@2
+  inputs:
+    containerRegistry: 'reactapp'
+    command: 'logout'
+
