@@ -36,6 +36,11 @@ steps:
     containerRegistry: 'reactapp'
     repository: 'reactapp'
     command: 'push'
+  env:
+    DOCKER_REGISTRY_SERVER_URL: 'https://index.docker.io/v1/'
+    DOCKER_ID: '$(DOCKER_USERNAME)'
+    DOCKER_PASSWORD: '$(DOCKER_PASSWORD)'
+
 
 - task: Docker@2
   inputs:
