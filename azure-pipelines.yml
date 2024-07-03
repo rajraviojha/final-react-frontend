@@ -18,13 +18,13 @@ steps:
 
 - task: Docker@2
   inputs:
-    containerRegistry: 'reactapp'  # Replace with your Docker registry service connection name
+    containerRegistry: 'reactapp'  
     command: 'login'
     arguments: '-u jharajltp -p Welcome@123'
 
 - task: Docker@2
   inputs:
-    containerRegistry: 'reactapp'  # Replace with your Docker registry service connection name
+    containerRegistry: 'reactapp' 
     repository: 'jharajltp/reactapp'
     command: 'build'
     Dockerfile: '**/Dockerfile'
@@ -34,7 +34,7 @@ steps:
 
 - task: Docker@2
   inputs:
-    containerRegistry: 'reactapp'  # Replace with your Docker registry service connection name
+    containerRegistry: 'reactapp'  
     repository: 'jharajltp/reactapp'
     command: 'push'
     tags: |
@@ -43,5 +43,5 @@ steps:
 
 - task: Docker@2
   inputs:
-    containerRegistry: 'reactapp'  # Replace with your Docker registry service connection name
+    containerRegistry: 'reactapp'  
     command: 'logout'
