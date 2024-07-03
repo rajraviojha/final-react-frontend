@@ -54,7 +54,7 @@ steps:
   inputs:
     provider: 'azurerm'
     command: 'init'
-    backendServiceArm: 'Free Trial (958de31c-6eda-4f41-a1b0-755df90f75f8)'
+    backendServiceArm: 'Visual Studio Enterprise(ac592fa2-27a9-454e-b6cb-b3d3524435e7)'
     backendAzureRmResourceGroupName: 'Trainings'
     backendAzureRmStorageAccountName: 'todoreactapp2024'
     backendAzureRmContainerName: 'tfstate'
