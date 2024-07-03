@@ -46,12 +46,11 @@ steps:
     containerRegistry: 'reactapp'  
     command: 'logout'
 
-- task: AzureRmWebAppDeployment@4
+- task: AzureWebAppContainer@1
   inputs:
-    ConnectionType: 'AzureRM'
     azureSubscription: 'Visual Studio Enterprise(ac592fa2-27a9-454e-b6cb-b3d3524435e7)'
     appType: 'webAppContainer'
-    WebAppName: 'todo-react-frontend'
-    DockerNamespace: 'jharajltp'
-    DockerRepository: 'jharajltp/reactapp'
-    DockerImageTag: 'latest'
+    appName: 'todo-react-frontend'
+    containers: 'jharajltp/reactapp:latest'
+    multiContainerConfigFile: ''
+    action: 'Run'
