@@ -53,5 +53,5 @@ steps:
     appType: 'webAppContainer'
     WebAppName: 'todo-react-frontend'
     DockerNamespace: 'jharajltp'
-    DockerRepository: 'reactapp'
+    DockerRepository: 'jharajltp/reactapp'
     DockerImageTag: 'latest'
