@@ -36,7 +36,7 @@ resource "azurerm_app_service" "react-app-test1" {
   app_service_plan_id = azurerm_app_service_plan.react-app-test1.id
 
   site_config {
-    linux_fx_version = "DOCKER|jharajltp/java-app:latest"
+    linux_fx_version = "DOCKER|jharajltp/reactapp"
   }
 
   tags = {
