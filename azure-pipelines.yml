@@ -55,18 +55,11 @@ steps:
     provider: 'azurerm'
     command: 'init'
     backendServiceArm: 'Free Trial (958de31c-6eda-4f41-a1b0-755df90f75f8)'
+    backendAzureRmResourceGroupName: 'Trainings'
+    backendAzureRmStorageAccountName: 'todoreactapp2024'
+    backendAzureRmContainerName: 'tfstate'
+    backendAzureRmKey: 'terraform.tfstate'
 
 
-- task: TerraformTaskV4@4
-  inputs:
-    provider: 'azurerm'
-    command: 'validate'
-    backendServiceArm: 'Free Trial (958de31c-6eda-4f41-a1b0-755df90f75f8)'
-
-- task: TerraformTaskV4@4
-  inputs:
-    provider: 'azurerm'
-    command: 'plan'
-    backendServiceArm: 'Free Trial (958de31c-6eda-4f41-a1b0-755df90f75f8)'
 
 
