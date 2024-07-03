@@ -54,14 +54,16 @@ steps:
   inputs:
     provider: 'azurerm'
     command: 'init'
+    workingDirectory: '**/deploy.tf'
 
 - task: TerraformTaskV4@4
   inputs:
     provider: 'azurerm'
     command: 'validate'
-
+    workingDirectory: '**/deploy.tf'
 - task: TerraformTaskV4@4
   inputs:
     provider: 'azurerm'
     command: 'plan'
     echo : TerraformTaskV4@4
+    workingDirectory: '**/deploy.tf'
