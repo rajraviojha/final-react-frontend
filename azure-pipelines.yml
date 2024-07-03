@@ -55,12 +55,13 @@ steps:
     provider: 'azurerm'
     command: 'init'
 
-- task: AzureRmWebAppDeployment@4
+- task: TerraformTaskV4@4
   inputs:
-    ConnectionType: 'AzureRM'
-    azureSubscription: 'Free Trial 1 (958de31c-6eda-4f41-a1b0-755df90f75f8)'
-    appType: 'webAppContainer'
-    WebAppName: 'todo-react-frontend'
-    DockerRepository: 'jharajltp/reactapp'
-    DockerImageTag: 'latest'
+    provider: 'azurerm'
+    command: 'validate'
 
+- task: TerraformTaskV4@4
+  inputs:
+    provider: 'azurerm'
+    command: 'plan'
+    echo : TerraformTaskV4@4
