@@ -54,6 +54,7 @@ steps:
   inputs:
     provider: 'azurerm'
     command: 'init'
+    backendServiceArm: 'Free Trial (958de31c-6eda-4f41-a1b0-755df90f75f8)'
     workingDirectory: '**/deploy.tf'
 
 - task: TerraformTaskV4@4
