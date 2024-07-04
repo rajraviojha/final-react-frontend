@@ -46,45 +46,22 @@ steps:
     containerRegistry: 'reactapp'  
     command: 'logout'
 
-- task: TerraformInstaller@1
+- task: AzureCLI@2
   inputs:
-    terraformVersion: 'latest'
+    azureSubscription: 'Free Trial 1 (958de31c-6eda-4f41-a1b0-755df90f75f8)'
+    scriptType: 'bash'
+    scriptLocation: 'inlineScript'
+    inlineScript: |
+      az login -u $(username) -p $(password) --tenant $(tenantid)
 
-- task: TerraformTaskV4@4
-  inputs:
-    provider: 'azurerm'
-    command: 'init'
-    backendServiceArm: 'Visual Studio Enterprise(ac592fa2-27a9-454e-b6cb-b3d3524435e7)'
-    backendAzureRmResourceGroupName: 'Trainings'
-    backendAzureRmStorageAccountName: 'todoreactapp2024'
-    backendAzureRmContainerName: 'tfstate'
-    backendAzureRmKey: 'terraform.tfstate'
 
-- task: TerraformTaskV4@4
+- task: AzureRmWebAppDeployment@4
   inputs:
-    provider: 'azurerm'
-    command: 'validate'
-    backendServiceArm: 'Visual Studio Enterprise(ac592fa2-27a9-454e-b6cb-b3d3524435e7)'
-    backendAzureRmResourceGroupName: 'Trainings'
-    backendAzureRmStorageAccountName: 'todoreactapp2024'
-    backendAzureRmContainerName: 'tfstate'
-    backendAzureRmKey: 'terraform.tfstate'
-
-- task: TerraformTaskV4@4
-  inputs:
-    provider: 'azurerm'
-    command: 'plan'
-    backendServiceArm: 'Visual Studio Enterprise(ac592fa2-27a9-454e-b6cb-b3d3524435e7)'
-    backendAzureRmResourceGroupName: 'Trainings'
-    backendAzureRmStorageAccountName: 'todoreactapp2024'
-    backendAzureRmContainerName: 'tfstate'
-    backendAzureRmKey: 'terraform.tfstate'
-
-- task: TerraformTaskV1@0
-  inputs:
-    provider: 'azurerm'
-    command: 'apply'
-    environmentServiceNameAzureRM: 'Visual Studio Enterprise(ac592fa2-27a9-454e-b6cb-b3d3524435e7)'
-  displayName: 'Terraform apply'
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'Free Trial 1 (958de31c-6eda-4f41-a1b0-755df90f75f8)'
+    appType: 'webAppContainer'
+    WebAppName: 'todo-react-frontend'
+    DockerRepository: 'jharajltp/reactapp'
+    DockerImageTag: 'latest'
 
 
